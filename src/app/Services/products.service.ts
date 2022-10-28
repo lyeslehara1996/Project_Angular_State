@@ -42,4 +42,15 @@ deleteProduct(product:Product):Observable<void>{
   return this.http.delete<void>(this.host+"/products/"+product.id);
 }
 
+saveProduct(product:Product):Observable<Product>{
+  return this.http.post<Product>(this.host+"/products/",product);
+}
+
+getProduct(id:number):Observable<Product>{
+  return this.http.get<Product>(this.host+"/products/"+id);
+}
+
+UpdateProduct(product:Product):Observable<Product>{
+  return this.http.put<Product>(this.host+"/products/"+product.id,product);
+}
 }
