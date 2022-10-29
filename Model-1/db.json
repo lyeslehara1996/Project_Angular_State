@@ -5,7 +5,7 @@
       "name": "Computer",
       "price": 1500,
       "quantity": 600,
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
@@ -13,7 +13,7 @@
       "name": "Printer",
       "price": 2500,
       "quantity": 100,
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
@@ -21,7 +21,7 @@
       "name": "Smartphone",
       "price": 3000,
       "quantity": 1200,
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
@@ -29,7 +29,7 @@
       "name": "machine  a laver",
       "price": 3000,
       "quantity": 1200,
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
@@ -37,7 +37,7 @@
       "name": "Ordinateur",
       "price": "2500",
       "quantity": "120",
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
@@ -45,14 +45,14 @@
       "name": "laptop",
       "price": "250000",
       "quantity": "1000",
-      "selected": true,
+      "selected": false,
       "available": false
     },
     {
       "name": "name",
       "quantity": 0,
       "price": 0,
-      "selected": true,
+      "selected": false,
       "available": true,
       "id": 7
     }

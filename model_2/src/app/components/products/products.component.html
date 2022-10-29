@@ -1,0 +1,10 @@
+<!--navbar-->
+<app-product-navbar
+  (productEventEmitter)="onActionEvent($event)"
+></app-product-navbar>
+<!--Product content-->
+
+<app-product-list
+  [products$]="products$"
+  (ListEventEmitter)="onActionEvent($event)"
+></app-product-list>

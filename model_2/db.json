@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 3,
+      "name": "Smartphone",
+      "price": 3000,
+      "quantity": 1200,
+      "selected": false,
+      "available": false
+    },
+    {
+      "id": 4,
+      "name": "machine  a laver",
+      "price": 3000,
+      "quantity": 1200,
+      "selected": false,
+      "available": false
+    },
+    {
+      "id": 5,
+      "name": "Ordinateur",
+      "price": "2500",
+      "quantity": "120",
+      "selected": false,
+      "available": false
+    },
+    {
+      "id": 6,
+      "name": "laptop",
+      "price": "250000",
+      "quantity": "1000",
+      "selected": false,
+      "available": false
+    },
+    {
+      "name": "name",
+      "quantity": 0,
+      "price": 0,
+      "selected": false,
+      "available": false,
+      "id": 7
+    },
+    {
+      "name": "RedmiPhone",
+      "quantity": "150",
+      "price": "50000",
+      "selected": false,
+      "available": false,
+      "id": 8
+    }
+  ]
+}
