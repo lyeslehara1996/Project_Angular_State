@@ -6,7 +6,7 @@
       "price": 3000,
       "quantity": 1200,
       "selected": false,
-      "available": false
+      "available": true
     },
     {
       "id": 4,
