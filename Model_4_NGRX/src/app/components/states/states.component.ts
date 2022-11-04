@@ -16,7 +16,7 @@ export class StatesComponent implements OnInit {
   ngOnInit(): void {
 
     this.eventDriverService.sourceEventSubjectObservable.subscribe((actionEvent:ActionEvent)=>{
-      ++this.conter
+      ++this.conter;
     })
 
   }
