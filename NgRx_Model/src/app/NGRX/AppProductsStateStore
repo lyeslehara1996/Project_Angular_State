@@ -1,0 +1,9 @@
+import { Product } from "../Models/product";
+import { ProductsStatesEnum } from "./ProductReducers";
+export interface ProductsStates{
+
+    products :Product[],
+    errorMessage:string,
+    dataState:ProductsStatesEnum.INITIAL,
+
+} 

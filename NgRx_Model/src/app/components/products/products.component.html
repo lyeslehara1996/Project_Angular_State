@@ -1,0 +1,35 @@
+<!--navbar-->
+<app-product-navbar></app-product-navbar>
+
+<div class="container">
+  <ng-container
+    *ngIf="productsState$ | async as state"
+    [ngSwitch]="state.dataState"
+  >
+    <ng-container
+      class="text-3xl font-bold underline"
+      *ngSwitchCase="ProductsStatesEnum.INITIAL"
+    >
+      INITIAL STATE ...
+    </ng-container>
+
+    <ng-container
+      class="text-3xl font-bold underline"
+      *ngSwitchCase="ProductsStatesEnum.LOADING"
+    >
+      LOADING ...
+    </ng-container>
+
+    <ng-container *ngSwitchCase="ProductsStatesEnum.ERROR">
+      <div class="col-12 text-center">
+        <div class="alert alert-danger">
+          {{ state.errorMessage }}
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="ProductsStatesEnum.LOADED">
+      <app-product-list [state]="state"></app-product-list>
+    </ng-container>
+  </ng-container>
+</div>
