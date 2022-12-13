@@ -55,6 +55,30 @@ export function productReducers(state= initState, action:Action){
 
         case ProductsActionsTypes.GET_AVAILABLE_PRODUCTS_ERROR:
             return {...state, dataState:ProductsStatesEnum.ERROR,errorMessage:(<ProductsActions>action).payload}
+//SELECTING PRODUCT
+
+            case ProductsActionsTypes.SELECTINGPRODUCT:
+            return {...state,dataState:ProductsStatesEnum.LOADING}
+    
+            case ProductsActionsTypes.SELECTINGPRODUCT_SUCCESS:
+            let product:Product=(<ProductsActions>action).payload
+
+            let listProducts=[...state.products]
+            let data :Product[] = listProducts.map(p=>(p==product.id)?product:p);
+            return {...state,dataState:ProductsStatesEnum.LOADED,products:data}
+
+            case ProductsActionsTypes.GET_SELECTED_PRODUCT_ERROR:
+            return {...state,dataState:ProductsStatesEnum.ERROR,errorMessage:(<ProductsActions>action).payload}
+//SEARCH PRODUCTS
+
+        case ProductsActionsTypes.SEARCHPRODUCTS:
+            return {...state,dataState:ProductsStatesEnum.LOADING}
+    
+         case ProductsActionsTypes.SEARCHPRODUCTS_SUCCESS:
+            return {...state,dataState:ProductsStatesEnum.LOADED,products:(<ProductsActions>action).payload}
+        case ProductsActionsTypes.SEARCHPRODUCTS_ERRORS:
+            return {...state,dataState:ProductsStatesEnum.ERROR,errorMessage:(<ProductsActions>action).payload}
+
 
         default: return{...state}
     }

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { ProductsService } from '../Services/products.service';
 import {Action} from '@ngrx/store';
 import {Actions,createEffect, ofType} from '@ngrx/effects'
-import { GetAllProductActionErrors, GetAllProductActionSuccess, GET_AVAILABLE_PRODUCTS_ERROR, GET_AVAILABLE_PRODUCTS_SECCESS, GET_SELECTED_PRODUCTS_Errors, GET_SELECTED_PRODUCTS_Success, ProductsActionsTypes } from './ProductAction';
+import { GetAllProductActionErrors, GetAllProductActionSuccess, GET_AVAILABLE_PRODUCTS_ERROR, GET_AVAILABLE_PRODUCTS_SECCESS, GET_SELECTED_PRODUCTS_Errors, GET_SELECTED_PRODUCTS_Success, ProductsActions, ProductsActionsTypes, SEARCH_PRODUCTS_ERROR, SEARCH_PRODUCTS_SECCESS, SELECTING_PRODUCTS_SECCESS } from './ProductAction';
 import { mergeMap } from 'rxjs/internal/operators/mergeMap';
 import { map } from 'rxjs/internal/operators/map';
 import { catchError } from 'rxjs/internal/operators/catchError';
@@ -56,5 +56,35 @@ export class ProductsEffects {
 
   });
             
+    // Selecting product
+    
+        SelectingProducts$:Observable<Action> = createEffect(() => {
+        return this.effectAction.pipe(
+                ofType(ProductsActionsTypes.SELECTINGPRODUCT),
+                mergeMap((action:ProductsActions)=>{
+                    return this.productService.SelectProduct(action.payload).pipe(
+                        map((products)=>new SELECTING_PRODUCTS_SECCESS(products)),
+                        catchError((err)=>of(new GET_AVAILABLE_PRODUCTS_ERROR(err)))
+                    )
+                })
+
+                );            
+
+  });
+    //SEARCHING product
+    
+    SEARCHProducts$:Observable<Action> = createEffect(() => {
+        return this.effectAction.pipe(
+                ofType(ProductsActionsTypes.SEARCHPRODUCTS),
+                mergeMap((action:ProductsActions)=>{
+                    return this.productService.getSearchProduct(action.payload).pipe(
+                        map((products)=>new SEARCH_PRODUCTS_SECCESS(products)),
+                        catchError((err)=>of(new SEARCH_PRODUCTS_ERROR(err)))
+                    )
+                })
+
+                );            
+
+  });
 
 }

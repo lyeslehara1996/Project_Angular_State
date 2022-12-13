@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/product';
 import {Store} from '@ngrx/store'
-import { GetAllProductAction, GET_AVAILABLE_PRODUCTS, GET_SELECTED_PRODUCTS } from 'src/app/NGRX/ProductAction';
+import { GetAllProductAction, GET_AVAILABLE_PRODUCTS, GET_SELECTED_PRODUCTS, SEARCH_PRODUCTS } from 'src/app/NGRX/ProductAction';
 
 @Component({
   selector: 'app-product-navbar',
@@ -34,6 +34,7 @@ export class ProductNavbarComponent implements OnInit {
   onAddProducts(){
   }
 
-  onSearch(f:Product){
+  onSearch(f:any){
+      this.store.dispatch( new SEARCH_PRODUCTS(f.keyWord))
   }
 }

@@ -15,7 +15,20 @@ export enum ProductsActionsTypes{
     GET_AVAILABLE_PRODUCTS_SECCESS = "[Product] GET AVAILABLE PRODUCTS SECCESS",
     GET_AVAILABLE_PRODUCTS_ERROR = "[Product] GET AVAILABLE PRODUCTS ERROR",
     
-    SEARCHPRODUCTS = "[Product] SEARCH PRODUCTS",
+     SELECTINGPRODUCT = "[Product] SELECTING PRODUCT",
+     SELECTINGPRODUCT_SUCCESS = "[Product] SELECTING_SUCCESS PRODUCT",
+     SELECTINGPRODUCT_ERRORS = "[Product] SELECTING-ERRORS PRODUCT",
+
+      AVALAIBLEPRODUCT = "[PRODUCT] AVALAIBLE PRODUCT",
+      AVALAIBLEPRODUCT_SUCCESS = "[PRODUCT] AVALAIBLE PRODUCT SUCCESS",
+      AVALAIBLEPRODUCT_ERRORS = "[PRODUCT] AVALAIBLE PRODUCT ERRORS",
+
+      SEARCHPRODUCTS = "[Product] SEARCH PRODUCTS",
+      SEARCHPRODUCTS_SUCCESS = "[Product] SEARCH PRODUCTS SUCCESS",
+      SEARCHPRODUCTS_ERRORS = "[Product] SEARCH PRODUCTS ERRORS",
+
+
+   
     
     NEWPRODUCTS = "[Product] NEW PRODUCTS",
 
@@ -27,9 +40,9 @@ export enum ProductsActionsTypes{
 
     DELETERODUCTS = "[Product] DELETE PRODUCTS",
 
-    SELECTEDPRODUCT = "[Product] SELECTED PRODUCT",
+   
 
-    AVALAIBLEPRODUCT = "[PRODUCT] AVALAIBLE PRODUCT",
+   
 
     
     
@@ -74,6 +87,47 @@ export class GET_AVAILABLE_PRODUCTS_ERROR implements Action{
    readonly type = ProductsActionsTypes.GET_AVAILABLE_PRODUCTS_ERROR;
     constructor(public payload:string){}}
 
+    //SELECTING PRODUCTS
+export class SELECTING_PRODUCTS implements Action{
+   readonly type = ProductsActionsTypes.SELECTINGPRODUCT;
+    constructor(public payload:any){}}
+
+export class SELECTING_PRODUCTS_SECCESS implements Action{
+   readonly type = ProductsActionsTypes.SELECTINGPRODUCT_SUCCESS;
+    constructor(public payload:Product){ }}
+
+export class SELECTING_PRODUCTS_ERROR implements Action{
+   readonly type = ProductsActionsTypes.SELECTINGPRODUCT_ERRORS;
+    constructor(public payload:string){}}
+
+
+    //AVALAIBLING PRODUCTS
+export class AVALAIBLING_PRODUCTS implements Action{
+   readonly type = ProductsActionsTypes.AVALAIBLEPRODUCT
+    constructor(public payload:any){}}
+
+export class AVALAIBLING_PRODUCTS_SUCCESS implements Action{
+   readonly type = ProductsActionsTypes.AVALAIBLEPRODUCT_SUCCESS;
+    constructor(public payload:Product[]){ }}
+
+export class AVALAIBLING_PRODUCTS_ERROR implements Action{
+   readonly type = ProductsActionsTypes.AVALAIBLEPRODUCT_ERRORS;
+    constructor(public payload:string){}}
+
+
+    //SEARCH PRODUCTS
+export class SEARCH_PRODUCTS implements Action{
+   readonly type = ProductsActionsTypes.SEARCHPRODUCTS;
+    constructor(public payload:any){}}
+
+export class SEARCH_PRODUCTS_SECCESS implements Action{
+   readonly type = ProductsActionsTypes.SEARCHPRODUCTS_SUCCESS;
+    constructor(public payload:Product[]){ }}
+
+export class SEARCH_PRODUCTS_ERROR implements Action{
+   readonly type = ProductsActionsTypes.SELECTINGPRODUCT_ERRORS;
+    constructor(public payload:string){}}
+
 
 
 
@@ -81,4 +135,9 @@ export class GET_AVAILABLE_PRODUCTS_ERROR implements Action{
 export type ProductsActions = 
    GetAllProductAction|GetAllProductActionSuccess|GetAllProductActionSuccess
    |GET_SELECTED_PRODUCTS|GET_SELECTED_PRODUCTS_Success|GET_SELECTED_PRODUCTS_Errors
+   |SELECTING_PRODUCTS|SELECTING_PRODUCTS_SECCESS|SELECTING_PRODUCTS_ERROR
+   |AVALAIBLING_PRODUCTS|AVALAIBLING_PRODUCTS_SUCCESS|AVALAIBLING_PRODUCTS_ERROR
+   |SEARCH_PRODUCTS|SEARCH_PRODUCTS_SECCESS|SEARCH_PRODUCTS_ERROR
+
+
    ;
